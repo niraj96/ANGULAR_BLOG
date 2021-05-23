@@ -1,0 +1,16 @@
+<div class="comment-section">
+    <span class="badge badge-success" (click)="handleLikes()">Likes {{likesCount}}</span> &nbsp;&nbsp;  <span class="badge badge-danger" (click)="handleDislikes()">Disikes {{dislikeCount}}</span> 
+
+    <div *ngFor="let comment of commentList">
+        <h6>Commented by: {{comment.author_name}}, {{comment.createdAt | date:'short'}}</h6>
+        <p style="font-style: italic;">
+           {{comment.comment}}
+        </p>
+    </div>
+    <div class="submit-comment">
+        <div class="input-group mb-3">
+            <input [(ngModel)] ="commentMsg" type="text" class="form-control" placeholder="Comment here.."   aria-describedby="button-addon2">
+            <button class="btn btn-outline-primary" type="button" id="button-addon2" (click)="afterComment()">Submit</button>
+          </div>
+    </div>
+</div>

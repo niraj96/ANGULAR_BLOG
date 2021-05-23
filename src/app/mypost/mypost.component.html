@@ -1,0 +1,26 @@
+<app-navigation></app-navigation>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" style="padding-top:12px;">
+            <h2 class="text-cneter">My Posts &nbsp;&nbsp;<a class="btn btn-primary" [routerLink] = "['/add_edit', null]">Add Article</a></h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Created At</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let article of mypostList; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{article.title}}</td>
+                        <td>{{article.createdAt | date:'short'}}</td>
+                        <td><a class="btn btn-sm btn-success" [routerLink] = "['/add_edit', article._id]">Edit</a> &nbsp; &nbsp;<button class="btn btn-sm btn-danger" (click)="deleteArticle(article._id)">Delete</button>&nbsp; &nbsp;<a class="btn btn-sm btn-info" [routerLink] = "['/view', article._id]">View</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

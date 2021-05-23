@@ -1,0 +1,15 @@
+<app-navigation></app-navigation>
+  <div class="container">
+      <div class="row custom-row" >
+          <div class="col-md-12">
+            <h1>All articles</h1> 
+            <div *ngFor="let article of articleList">
+                <h3>{{article.title}}</h3>
+                <p>{{article.description}}</p>
+                <small><b>Created on: {{article.createdAt | date:'short'}}</b></small> &nbsp;
+               
+                <app-comment [articleId]="article._id" [likes]="article.likes" [dislikes]="article.dislikes" ></app-comment>
+            </div>  
+          </div>
+      </div>
+  </div>

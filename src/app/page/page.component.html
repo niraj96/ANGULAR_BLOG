@@ -1,0 +1,13 @@
+<app-navigation></app-navigation>
+  <div class="container">
+      <div class="row custom-row" >
+          <div class="col-md-12">
+            <div>
+                <h3>{{article.title}}</h3>
+                <p>{{article.description}}</p>
+                <small><b>Created on: {{article.createdAt | date:'short'}}</b></small> &nbsp;
+                <app-comment [articleId]="articleId" [likes]="article.likes" [dislikes]="article.dislikes"></app-comment>
+            </div>  
+          </div>
+      </div>
+  </div>

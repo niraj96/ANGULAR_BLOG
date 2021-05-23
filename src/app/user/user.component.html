@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div *ngIf="!showLoginPage" class="card vertical-align">
+                <div class="card-header">
+                    <b>Signup</b>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="signupForm" (ngSubmit)="handleSignupForm(signupForm)">
+                        <div class="form-group">
+                            <label for="uname">Your Name</label>
+                            <input type="text" id="uname" formControlName="uname" class="form-control">
+                            <div *ngIf="signupForm.get('uname').invalid && (signupForm.get('uname').dirty || signupForm.get('uname').touched)">
+                                Please provide your name.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="uemail">Your Email</label>
+                            <input type="email" id="uemail" formControlName="uemail" class="form-control">
+                            <div *ngIf="signupForm.get('uemail').invalid && (signupForm.get('uemail').dirty || signupForm.get('uemail').touched)">
+                                Please provide a valid email address.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="upassword">Create Password</label>
+                            <input type="password" id="upassword" formControlName="upassword" class="form-control">
+                            <div *ngIf="signupForm.get('upassword').invalid && (signupForm.get('upassword').dirty || signupForm.get('upassword').touched)">
+                                Messages must be at least 5 characters long.
+                              </div>
+                        </div>
+                       
+                        <button type="submit" class="btn btn-primary"  [disabled]="signupForm.invalid">Sign Up</button>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <p class="text-cneter">Already have Account? <button type="button" class="btn btn-sm btn-default" (click)= "swicthOption(true)">Sign In</button></p>
+                </div>
+            </div>
+            <div *ngIf="showLoginPage" class="card vertical-align">
+                <div class="card-header">
+                    <b>Sign In</b>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="signinForm" (ngSubmit)="handleSigninForm(signinForm)">
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" formControlName="email" class="form-control">
+                            <div *ngIf="signinForm.get('email').invalid && (signinForm.get('email').dirty || signinForm.get('email').touched)">
+                                Please provide a valid email address.
+                              </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Your Password</label>
+                            <input type="password" id="password" formControlName="password" class="form-control">
+                            <div *ngIf="signinForm.get('password').invalid && (signinForm.get('password').dirty || signinForm.get('password').touched)">
+                                Messages must be at least 5 characters long.
+                              </div>
+                        </div>
+                       
+                        <button type="submit" class="btn btn-primary" [disabled]="signinForm.invalid">Sign In</button>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <p class="text-cneter">Dont have Account? <button type="button" class="btn btn-sm btn-default" (click)= "swicthOption(false)">Sign Up</button></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
